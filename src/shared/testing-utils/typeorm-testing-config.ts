@@ -1,7 +1,5 @@
 import {TypeOrmModule} from '@nestjs/typeorm';
 
-
-
 export const TypeOrmTestingConfig = () => [
     TypeOrmModule.forRoot({
         type: 'sqlite',
