@@ -33,7 +33,7 @@ export class FotoService {
             throw new BusinessLogicException("foto debe estar entre 100 y 6400", BusinessError.BAD_REQUEST)
 
         
-        if (foto.velObturacion < 1 || foto.velObturacion > 32)
+        if (foto.apertura < 1 || foto.apertura > 32)
             throw new BusinessLogicException("foto debe estar entre 100 y 6400", BusinessError.BAD_REQUEST)
 
         return await this.fotoRepository.save(foto);
