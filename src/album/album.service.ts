@@ -2,12 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
 import { Repository } from 'typeorm';
-import { AlbumEntity } from 'src/album/album.entity';
+import { AlbumEntity } from '../album/album.entity';
 import { FotoEntity } from '../foto/foto.entity';
 
 
 @Injectable()
-export class albumService {
+export class AlbumService {
     constructor(
         @InjectRepository(AlbumEntity)
         private readonly albumRepository: Repository<AlbumEntity>,
@@ -16,7 +16,7 @@ export class albumService {
         private readonly fotoRepository: Repository<FotoEntity>
     ){}
 
-    async findAll(): Promise<AlbumEntity[]> {
+    async findAllAlbums(): Promise<AlbumEntity[]> {
         return await this.albumRepository.find({ relations: ["products", "comments"] });
     }
 
@@ -28,7 +28,7 @@ export class albumService {
         return album;
     }
 
-    async create(album: AlbumEntity): Promise<AlbumEntity> {
+    async createAlbum(album: AlbumEntity): Promise<AlbumEntity> {
         return await this.albumRepository.save(album);
     }
 
@@ -51,7 +51,7 @@ export class albumService {
         return await this.albumRepository.save(foto);
       }
 
-    async delete(id: string) {
+    async deleteAlbum(id: string) {
         const album: AlbumEntity = await this.albumRepository.findOne({where:{id}});
         if (!album)
           throw new BusinessLogicException("The album with the given id was not found", BusinessError.NOT_FOUND);

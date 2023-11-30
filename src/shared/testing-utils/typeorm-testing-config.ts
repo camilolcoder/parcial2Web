@@ -13,5 +13,5 @@ export const TypeOrmTestingConfig = () => [
         synchronize: true,
         keepConnectionAlive: true,
     }),
-    TypeOrmModule.forFeature([]),
+    TypeOrmModule.forFeature([UsuarioEntity, RedSocialEntity, FotoEntity, AlbumEntity]),
 ];

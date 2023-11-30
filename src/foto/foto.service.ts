@@ -2,11 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
 import { Repository } from 'typeorm';
-import { FotoEntity } from 'src/foto/foto.entity';
+import { FotoEntity } from '../foto/foto.entity';
 
 
 @Injectable()
-export class fotoService {
+export class FotoService {
     constructor(
         @InjectRepository(FotoEntity)
         private readonly fotoRepository: Repository<FotoEntity>
@@ -16,7 +16,7 @@ export class fotoService {
         return await this.fotoRepository.find({ relations: ["fotos"] });
     }
 
-    async findOne(id: string): Promise<FotoEntity> {
+    async findFotoById(id: string): Promise<FotoEntity> {
         const foto: FotoEntity = await this.fotoRepository.findOne({where: {id}, relations: ["fotos"] } );
         if (!foto)
           throw new BusinessLogicException("The foto with the given id was not found", BusinessError.NOT_FOUND);
@@ -24,7 +24,7 @@ export class fotoService {
         return foto;
     }
     
-    async create(foto: FotoEntity): Promise<FotoEntity> {
+    async createFoto(foto: FotoEntity): Promise<FotoEntity> {
 
         if (foto.ISO < 100 || foto.ISO > 6400)
             throw new BusinessLogicException("foto debe estar entre 100 y 6400", BusinessError.BAD_REQUEST)
@@ -47,7 +47,7 @@ export class fotoService {
         return await this.fotoRepository.save({...persistedfoto, ...foto});
     }
 
-    async delete(id: string) {
+    async deleteFoto(id: string) {
         const foto: FotoEntity = await this.fotoRepository.findOne({where:{id}});
         if (!foto)
           throw new BusinessLogicException("The foto with the given id was not found", BusinessError.NOT_FOUND);

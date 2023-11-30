@@ -2,21 +2,21 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
 import { Repository } from 'typeorm';
-import { UsuarioEntity } from 'src/usuario/usuario.entity';
+import { UsuarioEntity } from '../usuario/usuario.entity';
 
 
 @Injectable()
-export class usuarioService {
+export class UsuarioService {
     constructor(
         @InjectRepository(UsuarioEntity)
         private readonly usuarioRepository: Repository<UsuarioEntity>
     ){}
 
-    async findAll(): Promise<UsuarioEntity[]> {
+    async findAllUsuarios(): Promise<UsuarioEntity[]> {
         return await this.usuarioRepository.find({ relations: ["fotos"] });
     }
 
-    async findOne(id: string): Promise<UsuarioEntity> {
+    async findUsuarioById(id: string): Promise<UsuarioEntity> {
         const usuario: UsuarioEntity = await this.usuarioRepository.findOne({where: {id}, relations: ["fotos"] } );
         if (!usuario)
           throw new BusinessLogicException("The usuario with the given id was not found", BusinessError.NOT_FOUND);
@@ -24,11 +24,11 @@ export class usuarioService {
         return usuario;
     }
     
-    async create(usuario: UsuarioEntity): Promise<UsuarioEntity> {
+    async createUsuario(usuario: UsuarioEntity): Promise<UsuarioEntity> {
         return await this.usuarioRepository.save(usuario);
     }
 
-    async update(id: string, usuario: UsuarioEntity): Promise<UsuarioEntity> {
+    async updateUsuario(id: string, usuario: UsuarioEntity): Promise<UsuarioEntity> {
         const persistedusuario: UsuarioEntity = await this.usuarioRepository.findOne({where:{id}});
         if (!persistedusuario)
           throw new BusinessLogicException("The usuario with the given id was not found", BusinessError.NOT_FOUND);
@@ -36,7 +36,7 @@ export class usuarioService {
         return await this.usuarioRepository.save({...persistedusuario, ...usuario});
     }
 
-    async delete(id: string) {
+    async deleteUsuario(id: string) {
         const usuario: UsuarioEntity = await this.usuarioRepository.findOne({where:{id}});
         if (!usuario)
           throw new BusinessLogicException("The usuario with the given id was not found", BusinessError.NOT_FOUND);

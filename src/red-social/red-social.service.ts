@@ -2,21 +2,21 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BusinessError, BusinessLogicException } from '../shared/errors/business-errors';
 import { Repository } from 'typeorm';
-import { RedSocialEntity } from 'src/red-social/red-social.entity';
+import { RedSocialEntity } from '../red-social/red-social.entity';
 
 
 @Injectable()
-export class redSocialService {
+export class RedSocialService {
     constructor(
         @InjectRepository(RedSocialEntity)
         private readonly redSocialRepository: Repository<RedSocialEntity>
     ){}
 
-    async findAll(): Promise<RedSocialEntity[]> {
+    async findAllRedeSocial(): Promise<RedSocialEntity[]> {
         return await this.redSocialRepository.find({ relations: ["redSocials"] });
     }
 
-    async findOne(id: string): Promise<RedSocialEntity> {
+    async findRedSocialById(id: string): Promise<RedSocialEntity> {
         const redSocial: RedSocialEntity = await this.redSocialRepository.findOne({where: {id}, relations: ["redSocials"] } );
         if (!redSocial)
           throw new BusinessLogicException("The redSocial with the given id was not found", BusinessError.NOT_FOUND);
