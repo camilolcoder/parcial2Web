@@ -35,7 +35,7 @@ export class RedSocialService {
         return await this.redSocialRepository.save(redSocial);
     }
 
-    async update(id: string, redSocial: RedSocialEntity): Promise<RedSocialEntity> {
+    async updateRedSocial(id: string, redSocial: RedSocialEntity): Promise<RedSocialEntity> {
         const persistedredSocial: RedSocialEntity = await this.redSocialRepository.findOne({where:{id}});
         if (!persistedredSocial)
           throw new BusinessLogicException("The redSocial with the given id was not found", BusinessError.NOT_FOUND);
@@ -43,7 +43,7 @@ export class RedSocialService {
         return await this.redSocialRepository.save({...persistedredSocial, ...redSocial});
     }
 
-    async delete(id: string) {
+    async deleteRedSocial(id: string) {
         const redSocial: RedSocialEntity = await this.redSocialRepository.findOne({where:{id}});
         if (!redSocial)
           throw new BusinessLogicException("The redSocial with the given id was not found", BusinessError.NOT_FOUND);

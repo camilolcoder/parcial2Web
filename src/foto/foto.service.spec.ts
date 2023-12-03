@@ -41,23 +41,19 @@ describe('FotoService', () => {
     expect(service).toBeDefined();
   });
 
-//   it('creates a new foto', async () => {
-//     const foto: FotoEntity = {
-//       id: "",
-//       ISO: faker.number.int(),
-//       velObturacion: faker.number.int(),
-//       apertura: faker.number.int(),
-//       fecha: faker.date.past(),
-//       usuario: null,
-//       album: null
-//     }
- 
-//     const newfoto: FotoEntity = await service.createFoto(foto);
-//     expect(newfoto).not.toBeNull();
- 
-//     const storedfoto: FotoEntity = await repository.findOne({where: {id: newfoto.id}})
-//     expect(storedfoto).not.toBeNull();
-//   });
+  it('findOne should return a foto by id', async () => {
+    const storedfoto: FotoEntity = fotolist[0];
+    const foto: FotoEntity = await service.findFotoById(storedfoto.id);
+    expect(foto).not.toBeNull();
+    expect(foto.ISO).toEqual(storedfoto.ISO)
+    expect(foto.velObturacion).toEqual(storedfoto.velObturacion)
+    expect(foto.apertura).toEqual(storedfoto.apertura)
+    expect(foto.fecha).toEqual(storedfoto.fecha)
+  });
+
+  it('findOne should throw an exception for an invalid foto', async () => {
+    await expect(() => service.findFotoById("0")).rejects.toHaveProperty("message", "The foto with the given id was not found")
+  });
 
   it('create Foto', async () => {
     const foto: FotoEntity = {
@@ -75,6 +71,7 @@ describe('FotoService', () => {
  
     const storedfoto: FotoEntity = await repository.findOne({where: {id: newfoto.id}})
     expect(storedfoto).not.toBeNull();
+    expect(storedfoto.ISO).toEqual(newfoto.ISO);
   });
 
   it('delete should remove a foto', async () => {
@@ -84,4 +81,9 @@ describe('FotoService', () => {
     expect(deletedfoto).toBeNull();
   });
 
+  it('delete should throw an exception for an invalid foto', async () => {
+    const foto: FotoEntity = fotolist[0];
+    await service.deleteFoto(foto.id);
+    await expect(() => service.deleteFoto("0")).rejects.toHaveProperty("message", "The foto with the given id was not found")
+  });
 });

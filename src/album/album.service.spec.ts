@@ -40,6 +40,19 @@ describe('AlbumService', () => {
     expect(service).toBeDefined();
   });
 
+  it('findOne should return a album by id', async () => {
+    const storedalbum: AlbumEntity = albumlist[0];
+    const album: AlbumEntity = await service.findAlbumById(storedalbum.id);
+    expect(album).not.toBeNull();
+    expect(album.fechaInicio).toEqual(storedalbum.fechaInicio)
+    expect(album.fechaFin).toEqual(storedalbum.fechaFin)
+    expect(album.titulo).toEqual(storedalbum.titulo)
+  });
+
+  it('findOne should throw an exception for an invalid album', async () => {
+    await expect(() => service.findAlbumById("0")).rejects.toHaveProperty("message", "The album with the given id was not found")
+  });
+
   it('create should return a new album', async () => {
     const album: AlbumEntity = {
       id: "",
@@ -61,6 +74,12 @@ describe('AlbumService', () => {
     await service.deleteAlbum(album.id);
      const deletedAlbum: AlbumEntity = await repository.findOne({ where: { id: album.id } })
     expect(deletedAlbum).toBeNull();
+  });
+
+  it('delete should throw an exception for an invalid album', async () => {
+    const album: AlbumEntity = albumlist[0];
+    await service.deleteAlbum(album.id);
+    await expect(() => service.deleteAlbum("0")).rejects.toHaveProperty("message", "The album with the given id was not found")
   });
 
 });
