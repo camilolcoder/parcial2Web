@@ -1,0 +1,1113 @@
+{
+	"info": {
+		"_postman_id": "097d00e6-f695-4e44-8d21-7abc7e3d8e0b",
+		"name": "Parcial2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23514222"
+	},
+	"item": [
+		{
+			"name": "foto",
+			"item": [
+				{
+					"name": "get fotos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/fotos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "http://localhost:3000/api/v1/fotos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/fotos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"fotos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "125"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7d-Qn+E/vQ4k144pGAvAe1fv0EZH7E\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 01:28:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\n        \"ISO\": 200,\n        \"velObturacion\": 30,\n        \"apertura\": 30,\n        \"fecha\": \"2012-11-08T06:37:45.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "post foto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ISO\": 200,\r\n    \"velObturacion\": 30,\r\n    \"apertura\": 30,\r\n    \"fecha\": \"2012-11-08 01:37:45\",\r\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/fotos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "http://localhost:3000/api/v1/fotos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ISO\": 200,\r\n    \"velObturacion\": 30,\r\n    \"apertura\": 30,\r\n    \"fecha\": \"2012-11-08 01:37:45\",\r\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/fotos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"fotos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "118"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"76-jvMp7RolUnhoXLMMGySduBBWpbU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 01:28:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ISO\": 200,\n    \"velObturacion\": 30,\n    \"apertura\": 30,\n    \"fecha\": \"2012-11-08 01:37:45\",\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get foto by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/fotos/2211d54d-de68-40a1-a42f-18bafba3cdff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos",
+								"2211d54d-de68-40a1-a42f-18bafba3cdff"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "http://localhost:3000/api/v1/fotos/2211d54d-de68-40a1-a42f-18bafba3cdff",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/fotos/2211d54d-de68-40a1-a42f-18bafba3cdff",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"fotos",
+										"2211d54d-de68-40a1-a42f-18bafba3cdff"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "123"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7b-+kYvmweZQCnqNbI4yru9Z6vka3o\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 01:26:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\n    \"ISO\": 200,\n    \"velObturacion\": 30,\n    \"apertura\": 30,\n    \"fecha\": \"2012-11-08T06:37:45.000Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete foto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/fotos/2211d54d-de68-40a1-a42f-18bafba3cdff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos",
+								"2211d54d-de68-40a1-a42f-18bafba3cdff"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete foto",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/fotos/2211d54d-de68-40a1-a42f-18bafba3cdff",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"fotos",
+										"2211d54d-de68-40a1-a42f-18bafba3cdff"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 02:08:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "album",
+			"item": [
+				{
+					"name": "get albums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get albums",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/albums",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"albums"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "162"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a2-HXsjrdw+ZWpcXx2D8wZrUW6eS4Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 02:05:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\n        \"fechaInicio\": \"2012-11-08T06:37:45.000Z\",\n        \"fechaFin\": \"2013-11-08T06:37:45.000Z\",\n        \"titulo\": \"mis canciones\",\n        \"fotos\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "create album",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechaInicio\": \"2012-11-08 01:37:45\",\r\n    \"fechaFin\": \"2013-11-08 01:37:45\",\r\n    \"titulo\": \"mis canciones\",\r\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create album",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fechaInicio\": \"2012-11-08 01:37:45\",\r\n    \"fechaFin\": \"2013-11-08 01:37:45\",\r\n    \"titulo\": \"mis canciones\",\r\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/albums",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"albums"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-qlPtOMi9zCzEhfFucd9Xt9UJYzY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 01:28:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"fechaInicio\": \"2012-11-08 01:37:45\",\n    \"fechaFin\": \"2013-11-08 01:37:45\",\n    \"titulo\": \"mis canciones\",\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get album by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/albums/2211d54d-de68-40a1-a42f-18bafba3cdff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums",
+								"2211d54d-de68-40a1-a42f-18bafba3cdff"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get album by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/albums/2211d54d-de68-40a1-a42f-18bafba3cdff",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"albums",
+										"2211d54d-de68-40a1-a42f-18bafba3cdff"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "160"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a0-Q1AFgfvRKw0fzAs7ANgvHwqvJZ4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 02:05:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\n    \"fechaInicio\": \"2012-11-08T06:37:45.000Z\",\n    \"fechaFin\": \"2013-11-08T06:37:45.000Z\",\n    \"titulo\": \"mis canciones\",\n    \"fotos\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "delete album",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/albums/2211d54d-de68-40a1-a42f-18bafba3cdff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums",
+								"2211d54d-de68-40a1-a42f-18bafba3cdff"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "http://localhost:3000/api/v1/albums/2211d54d-de68-40a1-a42f-18bafba3cdff",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/albums/2211d54d-de68-40a1-a42f-18bafba3cdff",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"albums",
+										"2211d54d-de68-40a1-a42f-18bafba3cdff"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 02:08:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "add foto to album",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/albums/2211d54d-de68-40a1-a42f-18bafba3cdff/fotos/2211d54d-de68-40a1-a42f-18bafba3cdff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums",
+								"2211d54d-de68-40a1-a42f-18bafba3cdff",
+								"fotos",
+								"2211d54d-de68-40a1-a42f-18bafba3cdff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "redSocial",
+			"item": [
+				{
+					"name": "get redes sociales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/redSocial",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"redSocial"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get redes sociales",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/redSocial",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"redSocial"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-DhQmrl7GcC20Se+4N7gQoAz6bGQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 02:05:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\n        \"nombre\": \"instagram\",\n        \"slogan\": \"re bien\",\n        \"usuarios\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "post red social",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"instagram\",\r\n    \"slogan\": \"re bien\",\r\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/redSocial",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"redSocial"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "post red social",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"instagram\",\r\n    \"slogan\": \"re bien\",\r\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/redSocial",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"redSocial"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-GCfS1OmWvOmRIUihhulZJKjLLKk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 02:05:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"nombre\": \"instagram\",\n    \"slogan\": \"re bien\",\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "get usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get usuarios",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/usuarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"usuarios"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "106"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6a-SGXJYvWbk5co18OvSCGvbKmqxf8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 02:06:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\n        \"nombre\": \"Juan Camilo\",\n        \"telefono\": \"12345678911\",\n        \"fotos\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "post usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\r\n    \"nombre\": \"Juan Camilo\",\r\n    \"telefono\": \"12345678911\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "post usuario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\r\n    \"nombre\": \"Juan Camilo\",\r\n    \"telefono\": \"12345678911\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/v1/usuarios",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"usuarios"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5d-+F+Oh+qiV5EVgPeckMChMPq+qIc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 02:05:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\n    \"nombre\": \"Juan Camilo\",\n    \"telefono\": \"12345678911\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get a user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/usuarios/2211d54d-de68-40a1-a42f-18bafba3cdff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								"2211d54d-de68-40a1-a42f-18bafba3cdff"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get a user by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/v1/usuarios/2211d54d-de68-40a1-a42f-18bafba3cdff",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"usuarios",
+										"2211d54d-de68-40a1-a42f-18bafba3cdff"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"68-mpvxBJDoy8QeGajBB68qZ5M9pes\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 02:06:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\n    \"nombre\": \"Juan Camilo\",\n    \"telefono\": \"12345678911\",\n    \"fotos\": []\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -16,7 +16,7 @@ import { AlbumEntity } from './album/album.entity';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
-      port: 5432,
+      port: 5433,
       username: "postgres",
       password: "camilol47",
       database: "postgres",
