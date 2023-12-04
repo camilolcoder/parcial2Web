@@ -11,6 +11,21 @@
 			"item": [
 				{
 					"name": "get fotos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -262,6 +277,21 @@
 				},
 				{
 					"name": "delete foto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Status code is 204\", function () {\r",
+									"   pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -389,11 +419,11 @@
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"a2-HXsjrdw+ZWpcXx2D8wZrUW6eS4Q\""
+									"value": "W/\"a2-yDVJwhrbjUVopRx9j33mDDiiYcA\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 04 Dec 2023 02:05:03 GMT"
+									"value": "Mon, 04 Dec 2023 04:31:19 GMT"
 								},
 								{
 									"key": "Connection",
@@ -405,18 +435,33 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\n        \"fechaInicio\": \"2012-11-08T06:37:45.000Z\",\n        \"fechaFin\": \"2013-11-08T06:37:45.000Z\",\n        \"titulo\": \"mis canciones\",\n        \"fotos\": []\n    }\n]"
+							"body": "[\n    {\n        \"id\": \"334af348-1a2b-4c10-a6bb-74b82475dfb0\",\n        \"fechaInicio\": \"2012-11-08T06:37:45.000Z\",\n        \"fechaFin\": \"2013-11-08T06:37:45.000Z\",\n        \"titulo\": \"mis canciones\",\n        \"fotos\": []\n    }\n]"
 						}
 					]
 				},
 				{
 					"name": "create album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Status code is 204\", function () {\r",
+									"   pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"fechaInicio\": \"2012-11-08 01:37:45\",\r\n    \"fechaFin\": \"2013-11-08 01:37:45\",\r\n    \"titulo\": \"mis canciones\",\r\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\r\n}",
+							"raw": "{\r\n    \"fechaInicio\": \"2012-11-08 01:37:45\",\r\n    \"fechaFin\": \"2013-11-08 01:37:45\",\r\n    \"titulo\": \"mis canciones\",\r\n    \"id\": \"334af348-1a2b-4c10-a6bb-74b82475dfb0\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -445,7 +490,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"fechaInicio\": \"2012-11-08 01:37:45\",\r\n    \"fechaFin\": \"2013-11-08 01:37:45\",\r\n    \"titulo\": \"mis canciones\",\r\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\r\n}",
+									"raw": "{\r\n    \"fechaInicio\": \"2012-11-08 01:37:45\",\r\n    \"fechaFin\": \"2013-11-08 01:37:45\",\r\n    \"titulo\": \"mis canciones\",\r\n    \"id\": \"334af348-1a2b-4c10-a6bb-74b82475dfb0\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -484,11 +529,11 @@
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"8b-qlPtOMi9zCzEhfFucd9Xt9UJYzY\""
+									"value": "W/\"8b-pxSo9N2B+HKctq54pkLyQuCMjBI\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 04 Dec 2023 01:28:42 GMT"
+									"value": "Mon, 04 Dec 2023 04:25:13 GMT"
 								},
 								{
 									"key": "Connection",
@@ -500,7 +545,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"fechaInicio\": \"2012-11-08 01:37:45\",\n    \"fechaFin\": \"2013-11-08 01:37:45\",\n    \"titulo\": \"mis canciones\",\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\"\n}"
+							"body": "{\n    \"fechaInicio\": \"2012-11-08 01:37:45\",\n    \"fechaFin\": \"2013-11-08 01:37:45\",\n    \"titulo\": \"mis canciones\",\n    \"id\": \"334af348-1a2b-4c10-a6bb-74b82475dfb0\"\n}"
 						}
 					]
 				},
@@ -510,7 +555,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/albums/2211d54d-de68-40a1-a42f-18bafba3cdff",
+							"raw": "http://localhost:3000/api/v1/albums/334af348-1a2b-4c10-a6bb-74b82475dfb0",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -520,7 +565,7 @@
 								"api",
 								"v1",
 								"albums",
-								"2211d54d-de68-40a1-a42f-18bafba3cdff"
+								"334af348-1a2b-4c10-a6bb-74b82475dfb0"
 							]
 						}
 					},
@@ -531,7 +576,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/api/v1/albums/2211d54d-de68-40a1-a42f-18bafba3cdff",
+									"raw": "http://localhost:3000/api/v1/albums/334af348-1a2b-4c10-a6bb-74b82475dfb0",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -541,7 +586,7 @@
 										"api",
 										"v1",
 										"albums",
-										"2211d54d-de68-40a1-a42f-18bafba3cdff"
+										"334af348-1a2b-4c10-a6bb-74b82475dfb0"
 									]
 								}
 							},
@@ -563,11 +608,11 @@
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"a0-Q1AFgfvRKw0fzAs7ANgvHwqvJZ4\""
+									"value": "W/\"a0-db33ozwI0wrOGPEAQFe7+aaQqoI\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 04 Dec 2023 02:05:20 GMT"
+									"value": "Mon, 04 Dec 2023 04:26:03 GMT"
 								},
 								{
 									"key": "Connection",
@@ -579,7 +624,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"2211d54d-de68-40a1-a42f-18bafba3cdff\",\n    \"fechaInicio\": \"2012-11-08T06:37:45.000Z\",\n    \"fechaFin\": \"2013-11-08T06:37:45.000Z\",\n    \"titulo\": \"mis canciones\",\n    \"fotos\": []\n}"
+							"body": "{\n    \"id\": \"334af348-1a2b-4c10-a6bb-74b82475dfb0\",\n    \"fechaInicio\": \"2012-11-08T06:37:45.000Z\",\n    \"fechaFin\": \"2013-11-08T06:37:45.000Z\",\n    \"titulo\": \"mis canciones\",\n    \"fotos\": []\n}"
 						}
 					]
 				},
@@ -605,12 +650,12 @@
 					},
 					"response": [
 						{
-							"name": "http://localhost:3000/api/v1/albums/2211d54d-de68-40a1-a42f-18bafba3cdff",
+							"name": "delete album",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/api/v1/albums/2211d54d-de68-40a1-a42f-18bafba3cdff",
+									"raw": "http://localhost:3000/api/v1/albums/334af348-1a2b-4c10-a6bb-74b82475dfb0",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -620,7 +665,7 @@
 										"api",
 										"v1",
 										"albums",
-										"2211d54d-de68-40a1-a42f-18bafba3cdff"
+										"334af348-1a2b-4c10-a6bb-74b82475dfb0"
 									]
 								}
 							},
@@ -634,7 +679,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 04 Dec 2023 02:08:30 GMT"
+									"value": "Mon, 04 Dec 2023 04:26:39 GMT"
 								},
 								{
 									"key": "Connection",
