@@ -5,9 +5,9 @@ import { UsuarioDTO } from './usuario.dto';
 import { UsuarioEntity } from './usuario.entity';
 import { UsuarioService } from './usuario.service';
 
-@Controller('users')
+@Controller('usuarios')
 @UseInterceptors(BusinessErrorsInterceptor)
-export class userController {
+export class UsuarioController {
     constructor(private readonly userService: UsuarioService) {}
 
   @Get()

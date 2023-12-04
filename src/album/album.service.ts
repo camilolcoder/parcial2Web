@@ -17,7 +17,7 @@ export class AlbumService {
     ){}
 
     async findAllAlbums(): Promise<AlbumEntity[]> {
-        return await this.albumRepository.find({ relations: ["products", "comments"] });
+        return await this.albumRepository.find({ relations: ["fotos"] });
     }
 
     async findAlbumById(id: string): Promise<AlbumEntity> {
@@ -39,23 +39,29 @@ export class AlbumService {
        
         const album: AlbumEntity = await this.albumRepository.findOne({where: {id: albumId}, relations: ["fotos"]}) 
         if (!album)
-          throw new BusinessLogicException("The user with the given id was not found", BusinessError.NOT_FOUND);
+          throw new BusinessLogicException("The album with the given id was not found", BusinessError.NOT_FOUND);
 
         if (foto.fecha <= album.fechaInicio)
             throw new BusinessLogicException("Fecha menor a la del album", BusinessError.BAD_REQUEST)
 
         if (foto.fecha >= album.fechaFin)
-        throw new BusinessLogicException("Fecha menor a la del album", BusinessError.BAD_REQUEST)
-     
+          throw new BusinessLogicException("Fecha mayor a la del album", BusinessError.BAD_REQUEST)
+
+        if (album.fotos.length >= 5)
+          throw new BusinessLogicException("Maximo un album puede tener 5 fotos", BusinessError.BAD_REQUEST)
+
         album.fotos = [...album.fotos, foto];
         return await this.albumRepository.save(foto);
       }
 
     async deleteAlbum(id: string) {
-        const album: AlbumEntity = await this.albumRepository.findOne({where:{id}});
+        const album: AlbumEntity = await this.albumRepository.findOne({where:{id}, relations: ["fotos"]});
         if (!album)
           throw new BusinessLogicException("The album with the given id was not found", BusinessError.NOT_FOUND);
-      
+
+        if (album.fotos.length > 0)
+          throw new BusinessLogicException("El album tiene una foto asignada por lo tanto no se puede elimianr", BusinessError.BAD_REQUEST)
+
         await this.albumRepository.remove(album);
     }
 }

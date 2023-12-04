@@ -5,37 +5,37 @@ import { RedSocialDTO } from './red-social.dto';
 import { RedSocialEntity } from './red-social.entity';
 import { RedSocialService } from './red-social.service';
 
-@Controller('users')
+@Controller('redSocial')
 @UseInterceptors(BusinessErrorsInterceptor)
-export class userController {
-    constructor(private readonly userService: RedSocialService) {}
+export class redSocialController {
+    constructor(private readonly redSocialService: RedSocialService) {}
 
   @Get()
   async findAll() {
-    return await this.userService.findAllRedeSocial();
+    return await this.redSocialService.findAllRedeSocial();
   }
 
-  @Get(':userId')
-  async findOne(@Param('userId') userId: string) {
-    return await this.userService.findRedSocialById(userId);
+  @Get(':redSocialId')
+  async findOne(@Param('redSocialId') redSocialId: string) {
+    return await this.redSocialService.findRedSocialById(redSocialId);
   }
 
   @Post()
-  async create(@Body() userDto: RedSocialDTO) {
-    const user: RedSocialEntity = plainToInstance(RedSocialEntity, userDto);
-    return await this.userService.createRedSocial(user);
+  async create(@Body() redSocialDto: RedSocialDTO) {
+    const redSocial: RedSocialEntity = plainToInstance(RedSocialEntity, redSocialDto);
+    return await this.redSocialService.createRedSocial(redSocial);
   }
 
-  @Put(':userId')
-  async update(@Param('userId') userId: string, @Body() userDto: RedSocialDTO) {
-    const user: RedSocialEntity = plainToInstance(RedSocialEntity, userDto);
-    return await this.userService.updateRedSocial(userId, user);
+  @Put(':redSocialId')
+  async update(@Param('redSocialId') redSocialId: string, @Body() redSocialDto: RedSocialDTO) {
+    const redSocial: RedSocialEntity = plainToInstance(RedSocialEntity, redSocialDto);
+    return await this.redSocialService.updateRedSocial(redSocialId, redSocial);
   }
 
-  @Delete(':userId')
+  @Delete(':redSocialId')
   @HttpCode(204)
-  async delete(@Param('userId') userId: string) {
-    return await this.userService.deleteRedSocial(userId);
+  async delete(@Param('redSocialId') redSocialId: string) {
+    return await this.redSocialService.deleteRedSocial(redSocialId);
   }
 
 }

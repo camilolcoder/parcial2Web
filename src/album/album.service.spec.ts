@@ -31,7 +31,8 @@ describe('AlbumService', () => {
         const album: AlbumEntity = await repository.save({
             fechaInicio: faker.date.past(),
             fechaFin: faker.date.future(),
-            titulo: faker.lorem.word()})
+            titulo: faker.lorem.word(),
+            })
         albumlist.push(album);
     }
   }
@@ -65,14 +66,14 @@ describe('AlbumService', () => {
     const newAlbum: AlbumEntity = await service.createAlbum(album);
     expect(newAlbum).not.toBeNull();
  
-    const storedAlbum: AlbumEntity = await repository.findOne({where: {id: newAlbum.id}})
+    const storedAlbum: AlbumEntity = await repository.findOne({where: {id: newAlbum.id}, relations: ["fotos"] })
     expect(storedAlbum).not.toBeNull();
   });
 
   it('delete should remove a album', async () => {
     const album: AlbumEntity = albumlist[0];
     await service.deleteAlbum(album.id);
-     const deletedAlbum: AlbumEntity = await repository.findOne({ where: { id: album.id } })
+     const deletedAlbum: AlbumEntity = await repository.findOne({ where: { id: album.id }, relations: ["fotos"] })
     expect(deletedAlbum).toBeNull();
   });
 

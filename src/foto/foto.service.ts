@@ -13,7 +13,7 @@ export class FotoService {
     ){}
 
     async findAllFotos(): Promise<FotoEntity[]> {
-        return await this.fotoRepository.find({ relations: ["fotos"] });
+        return await this.fotoRepository.find();
     }
 
     async findFotoById(id: string): Promise<FotoEntity> {
@@ -36,6 +36,12 @@ export class FotoService {
         if (foto.apertura < 1 || foto.apertura > 32)
             throw new BusinessLogicException("foto debe estar entre 100 y 6400", BusinessError.BAD_REQUEST)
 
+        const arribaMedia = [foto.ISO, foto.velObturacion, foto.apertura].filter(value => value > this.calculoMedia(value)).length;
+
+        if (arribaMedia > 2) {
+            throw new BusinessLogicException("maximo 2 de los atributos(ISO, velO, apertura) deben estar por encima de la media", BusinessError.BAD_REQUEST)
+        }
+
         return await this.fotoRepository.save(foto);
     }
 
@@ -54,4 +60,9 @@ export class FotoService {
       
         await this.fotoRepository.remove(foto);
     }
+
+    private calculoMedia(...values: number[]): number {
+        const sum = values.reduce((acc, val) => acc + val, 0);
+        return sum / values.length;
+      }
 }

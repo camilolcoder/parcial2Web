@@ -7,7 +7,7 @@ import { FotoService } from './foto.service';
 
 @Controller('fotos')
 @UseInterceptors(BusinessErrorsInterceptor)
-export class fotoController {
+export class FotoController {
     constructor(private readonly fotoService: FotoService) {}
 
   @Get()

@@ -7,7 +7,7 @@ import { AlbumService } from './album.service';
 
 @Controller('albums')
 @UseInterceptors(BusinessErrorsInterceptor)
-export class albumController {
+export class AlbumController {
     constructor(private readonly albumService: AlbumService) {}
 
   @Get()

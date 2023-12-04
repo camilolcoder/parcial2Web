@@ -13,7 +13,7 @@ export class RedSocialService {
     ){}
 
     async findAllRedeSocial(): Promise<RedSocialEntity[]> {
-        return await this.redSocialRepository.find({ relations: ["redSocials"] });
+        return await this.redSocialRepository.find({ relations: ["usuarios"] });
     }
 
     async findRedSocialById(id: string): Promise<RedSocialEntity> {

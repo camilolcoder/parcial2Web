@@ -25,6 +25,8 @@ export class UsuarioService {
     }
     
     async createUsuario(usuario: UsuarioEntity): Promise<UsuarioEntity> {
+        if (usuario.telefono.length == 10)
+            throw new BusinessLogicException("The usuario telefono needs to have 10 characters", BusinessError.NOT_FOUND);
         return await this.usuarioRepository.save(usuario);
     }
 
